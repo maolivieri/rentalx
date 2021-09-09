@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
-import { Category } from "../../entities/Category";
-import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
+import { Category } from "@modules/cars/infra/typeorm/entities/Category";
+import { ICategoriesRepository } from "@modules/cars/repositories/ICategoriesRepository";
 
 interface IRequest {
     name: string;
@@ -12,7 +12,8 @@ interface IRequest {
 class ListCategoriesUseCase {
     constructor(
         @inject("CategoriesRepository")
-        private categoriesRepository: ICategoriesRepository) {}
+        private categoriesRepository: ICategoriesRepository
+    ) {}
 
     async execute(): Promise<Category[]> {
         const categories = await this.categoriesRepository.list();
