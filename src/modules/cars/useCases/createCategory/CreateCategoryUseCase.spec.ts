@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { AppError } from "@errors/AppError";
+import { AppError } from "@shared/errors/AppError";
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 import { CategoriesRepositoryInMemory } from "@modules/cars/repositories/in-memory/CategoriesRepositoryInMemory";
 import { ICreateCategoryDTO } from "@modules/cars/repositories/ICategoriesRepository";
