@@ -7,7 +7,9 @@ let carsRepositoryInMemory: CarsRepositoryInMemory;
 describe("List Cars", () => {
     beforeEach(() => {
         carsRepositoryInMemory = new CarsRepositoryInMemory();
-        listAvailableCarsUseCase = new ListAvailableCarsUseCase();
+        listAvailableCarsUseCase = new ListAvailableCarsUseCase(
+            carsRepositoryInMemory
+        );
     });
     it("should be able to list all available cars", async () => {
         const car = await carsRepositoryInMemory.create({
