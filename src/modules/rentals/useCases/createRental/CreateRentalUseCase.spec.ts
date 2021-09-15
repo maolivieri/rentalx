@@ -4,7 +4,7 @@ import utc from "dayjs/plugin/utc";
 import { CreateRentalUseCase } from "./CreateRentalUseCase";
 import { RentalsRepositoryInMemory } from "../../repositories/in-memory/RentalsRepositoryInMemory";
 import { AppError } from "@shared/errors/AppError";
-import {DayjsDateProvider} from "@shared/container/providers/DateProvider/implementations/DayjsDateProvider";
+import { DayjsDateProvider } from "@shared/container/providers/DateProvider/implementations/DayjsDateProvider";
 
 let createRentalUseCase: CreateRentalUseCase;
 let rentalsRepositoryInMemory: RentalsRepositoryInMemory;
@@ -14,10 +14,11 @@ describe("Create Rental", () => {
     const dayAdd24Hours = dayjs().add(1, "day").toDate();
 
     beforeEach(() => {
-        dayjsDateProvider: = new DayjsDateProvider
+        dayjsDateProvider = new DayjsDateProvider();
         rentalsRepositoryInMemory = new RentalsRepositoryInMemory();
         createRentalUseCase = new CreateRentalUseCase(
-            rentalsRepositoryInMemory, dayjsDateProvider
+            rentalsRepositoryInMemory,
+            dayjsDateProvider
         );
     });
 
